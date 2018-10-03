@@ -14,10 +14,10 @@ public class Calculator {
         let lastVal:Int? = Int(args[args.count - 1])
         if lastVal != nil {
             guard let val1 = Int(args[0]) else{
-                return -1
+                return 0 //invalid values
             }
             guard let val2 = Int(args[2]) else {
-                return -1
+                return 0 //invalid values
             }
             switch args[1]{
             case "+":
