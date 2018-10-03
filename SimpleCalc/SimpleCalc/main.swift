@@ -11,7 +11,8 @@ import Foundation
 public class Calculator {
     public func calculate(_ args: [String]) -> Int {
         var result:Int = 0
-        if args.count == 3 {
+        let lastVal:Int? = Int(args[args.count - 1])
+        if lastVal != nil {
             guard let val1 = Int(args[0]) else{
                 return -1
             }
@@ -60,16 +61,18 @@ public class Calculator {
         }
         return result
     }
-    
     public func calculate(_ arg: String) -> Int {
-        return calculate( arg.split(separator: " ").map({ substr in String(substr) }) )
+//        var splitArgs:[String] = arg.split(separator: " ").map({ substr in String(substr) })
+//        splitArgs.removeFirst(1)
+//        return calculate( splitArgs )
+        return calculate(arg.split(separator: " ").map({ substr in String(substr) }) )
     }
 }
 
 print("UW Calculator v1")
-print("Enter an expression separated by returns:")
+//print("Enter an expression separated by returns:")
 let first = readLine()!
-let operation = readLine()!
-let second = readLine()!
-print(Calculator().calculate([first, operation, second]))
+//let operation = readLine()!
+//let second = readLine()!
+print(Calculator().calculate(first))
 
