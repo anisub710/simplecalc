@@ -50,7 +50,12 @@ public class Calculator {
                 guard let num = Int(args[0]) else{
                     return 0
                 }
-                if num == 0 {return 1}
+                if num == 0 {
+                    return 1
+                    
+                }else if num < 0 {
+                    return 0 // negative factorials don't exist
+                }
                 result = 1
                 for i in 1...num {
                     result = i * result
@@ -70,9 +75,9 @@ public class Calculator {
 }
 
 print("UW Calculator v1")
-//print("Enter an expression separated by returns:")
+print("Enter an expression separated by returns:")
 let first = readLine()!
-//let operation = readLine()!
-//let second = readLine()!
-print(Calculator().calculate(first))
+let operation = readLine()!
+let second = readLine()!
+print(Calculator().calculate([first, operation, second]))
 
